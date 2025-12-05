@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+*.pyc
+.idea/
+.vscode/
+*.log
+*.tlog
+.DS_Store
+# Arquivos gerados pelo ArduPilot locais
+eeprom.bin
+mav.parm
