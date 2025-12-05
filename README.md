@@ -2,9 +2,6 @@
 
 Compilador para a Domain-Specific Language (DSL) **MissionControl**, focado em gerar missões autônomas para drones via MAVSDK.
 
-## Status do Projeto
-🚧 **Fase 1 Concluída:** Golden Target Validado.
-
 ## Estrutura
 - `golden_target.py`: Script Python manual ("gabarito") validado no simulador. Serve de alvo para o gerador de código.
 - `compiler/`: Código fonte do compilador (em desenvolvimento).
