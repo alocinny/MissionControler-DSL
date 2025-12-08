@@ -20,6 +20,7 @@ Compilador para a Domain-Specific Language (DSL) **MissionControl**, focado em g
 2. Intale as dependências:
     ```bash
     pip install mavsdk
+    pip install antlr4-python3-runtime    
     ```
 
 3. Execute o script
