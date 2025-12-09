@@ -41,34 +41,25 @@ Execute o `main.py`, passando o caminho para o seu arquivo de missão como argum
 #### Comando de Compilação:
 
 ```bash
-python main.py &lt;CAMINHO_PARA_ARQUIVO&gt;.mc
+python main.py <CAMINHO_PARA_ARQUIVO>.mc
 ```
 
 ---
 
 #### Exemplo: Se o arquivo de entrada for `missao_curta.mc`, a saída será:
 
-- Sucesso! Arquivo 'build/missao_curta.py' gerado.
-- Para rodar: python build/missao_curta.py
+- Sucesso! Arquivo 'build/missao.py' gerado.
+- Para rodar: python build/missao.py
 
 ---
 
-### 2. Iniciar o Simulador
 
-Para testar a missão, inicie o simulador ArduPilot (SITL) em um terminal separado.
-
-```bash
-sim_vehicle.py -v ArduCopter --console --map
-```
-
-O simulador deve estar rodando e aguardando a conexão MAVSDK.
-
-### 3. Executar o Script Gerado
+### 2. Executar o Script Gerado
 
 Use o comando de execução fornecido na etapa de compilação. Este script Python irá se conectar ao simulador via MAVSDK e iniciar a missão.
 
 #### Comando de Execução (Exemplo):
 
 ```bash
-python build/missao_curta.py
+python build/missao.py
 ```
