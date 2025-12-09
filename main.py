@@ -1,4 +1,5 @@
 import sys
+import os
 from antlr4 import *
 from generated.compiler.MissionControlLexer import MissionControlLexer
 from generated.compiler.MissionControlParser import MissionControlParser
@@ -28,7 +29,18 @@ def main(input_file):
     codigo_final = generator.generate()
 
     # 4. Salvar Arquivo
-    output_file = "mission_runner1.py"
+    output_dir = "build"
+    os.makedirs(output_dir, exist_ok=True)
+    
+    file_name_with_ext = os.path.basename(input_file)
+    
+    # Separa o nome do arquivo base da extensão ('.mc')
+    base_name, _ = os.path.splitext(file_name_with_ext)
+    
+    # Constrói o novo nome do arquivo com a extensão .py
+    output_filename = f"{base_name}.py"
+    output_file = os.path.join(output_dir, output_filename)
+    
     with open(output_file, "w", encoding='utf-8') as f:
         f.write(codigo_final)
     

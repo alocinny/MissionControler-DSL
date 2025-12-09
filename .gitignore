@@ -9,3 +9,5 @@ __pycache__/
 # Arquivos gerados pelo ArduPilot locais
 eeprom.bin
 mav.parm
+# Diretório de arquivos gerados (compilados)
+build/
