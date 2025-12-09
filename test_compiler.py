@@ -18,10 +18,10 @@ mission "Teste Falha" {
 
 print("\nvalidando regra de bateria")
 try:
-    input_stream = InputStream(codigo_invalido)
-    lexer = MissionControlLexer(input_stream)
+    input_stream = InputStream(codigo_invalido) # transforma a string em algo que o lexer entende 
+    lexer = MissionControlLexer(input_stream) # lê os caracter produzido no inputStream e gera os tokens
     stream = CommonTokenStream(lexer)
-    parser = MissionControlParser(stream)
+    parser = MissionControlParser(stream) # Ele aplica sua gramática sintática para transformar os tokens em uma árvore de parsing (parse tree).
     tree = parser.prog()
 
     visitor = MissionCompiler()
@@ -111,6 +111,33 @@ mission "Decolagem Ilegal" {
     start { speed(5) }
     task "Perigo" {
         takeoff(10) # ERRO! Não pode decolar no meio de uma task
+    }
+    end { land() }
+}
+"""
+try:
+    input_stream = InputStream(codigo_ilegal)
+    lexer = MissionControlLexer(input_stream)
+    stream = CommonTokenStream(lexer)
+    parser = MissionControlParser(stream)
+    tree = parser.prog()
+
+    visitor = MissionCompiler()
+    visitor.visit(tree)
+    print("o compilador deixou decolar dentro de uma task")
+except Exception as e:
+    print(f"bloqueou takeoff ilegal: {e}")
+
+
+# (tem que falhar)
+print("\nvalidando Ccntexto do takeoff")
+codigo_ilegal = """
+mission "Decolagem Ilegal" {
+    settings { max_altitude: -50.0 }
+    waypoints { "Home": 0.0, 0.0 }
+    start { speed(-5) }
+    task "Perigo" {
+        takeoff(10) 
     }
     end { land() }
 }
