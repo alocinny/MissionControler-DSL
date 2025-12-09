@@ -97,8 +97,6 @@ async def run():
 
         elif cmd["type"] == "SPEED":
             val = cmd["val"]
-            lines.append(f"{self.indent}print(f'-- [CMD] Ajustando velocidade: {val}m/s')")
-            lines.append(f"{self.indent}await drone.action.set_maximum_speed({val})")
         
 
         elif cmd["type"] == "goto":
