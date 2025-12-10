@@ -14,13 +14,18 @@ def main(input_file):
     parser = MissionControlParser(stream)
     tree = parser.missionBlock()
 
+
+    if parser.getNumberOfSyntaxErrors() > 0: # Se houver erros de sintaxe, aborta
+        print(f"Abortando: Encontrados {parser.getNumberOfSyntaxErrors()} erros de sintaxe.")
+        return
+
     # 2. Semântica (Visitor)
     print(">>> Analisando Semântica...")
     visitor = MissionCompiler()
     try:
         visitor.visit(tree)
     except Exception as e:
-        print(f"❌ ERRO SEMÂNTICO: {e}")
+        print(f"ERRO SEMÂNTICO: {e}")
         return
 
     # 3. Backend (Geração de Código)
@@ -44,8 +49,8 @@ def main(input_file):
     with open(output_file, "w", encoding='utf-8') as f:
         f.write(codigo_final)
     
-    print(f"✅ Sucesso! Arquivo '{output_file}' gerado.")
-    print(f"🚀 Para rodar: python {output_file}")
+    print(f"Sucesso! Arquivo '{output_file}' gerado.")
+    print(f"Para rodar: python {output_file}")
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:

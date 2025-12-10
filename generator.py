@@ -12,7 +12,7 @@ class MissionCodeGenerator:
         return "\n".join(sections)
 
     def _generate_imports(self):
-        return """import asyncio
+        return """import asyncio 
 from mavsdk import System
 """
 
@@ -94,10 +94,6 @@ async def run():
             dur = cmd["duration"]
             lines.append(f"{self.indent}print(f'-- [CMD] Hover por {dur}s...')")
             lines.append(f"{self.indent}await asyncio.sleep({dur})")
-
-        elif cmd["type"] == "SPEED":
-            val = cmd["val"]
-        
 
         elif cmd["type"] == "goto":
             # Lógica Inteligente de Altitude Absoluta
