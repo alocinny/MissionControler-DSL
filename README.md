@@ -58,12 +58,40 @@ Esse projeto possui um ambiente de desenvolvimento em nuvem configurado.
     * *Nota:* O arquivo `.devContainer` instalará automaticamente o **Java 17** necessário para o ANTLR, **Python 3.1**, a extensão do VS Code para ANTLR e todas as dependências do `requirements.txt`
 5. Assim que o terminal estiver disponível, execute o compilador:
     ```bash
-    python main.py examplos/<nome_do_arquivo_de_teste>.mc
+    python main.py exemplos/<nome_do_arquivo_de_teste>.mc
     ```
+
+
+## Execução Local
+
+Caso prefira rodar o projeto na sua própria máquina (Windows, Linux ou Mac) em vez do Codespaces:
+
+1. Pré-requisitos:
+
+- Python 3.8 ou superior.
+- Java (JRE ou JDK) instalado (necessário para o funcionamento do ANTLR).
+
+2. Instalação das Dependências: No terminal, dentro da pasta do projeto, execute:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+3. Execução: Para compilar um arquivo, use o comando:
+    ```bash
+    python main.py exemplos/missao_teste.mc
+    ```
+
+
+## Como testar os exemplos
+
+Já disponibilizamos missões de teste prontas na pasta exemplos/. Você pode usar elas para verificar o funcionamento ou criar seu proprio arquivo de teste:
+
+-   Arquivos com missao_... no nome: São scripts válidos e funcionam perfeitamente.
+-   Arquivos com erro_... no nome: São scripts feitos para falhar propositalmente, acusando os erros de validação do compilador.
 
 ## Como executar as missões geradas
 
-Após compilar o arquivo `.mc`e gerar o script python, caso queira testar o script gerado para verificar se está funcionando corretamente, você precisará configurar o ambiente com a biblitoeca MAVSDK para rodá-lo.
+Após compilar o arquivo `.mc` e gerar o script python, caso queira testar o script gerado para verificar se está funcionando corretamente, você precisará configurar o ambiente com a biblitoeca MAVSDK para rodá-lo.
 
 Aqui estão os guias para preparação do ambiente e conexão com o simulador (ArduPilot SITL):
 
