@@ -1,65 +1,60 @@
 # MissionControl DSL Compiler
 
+**Compilador de Missões Autónomas para Drones (MAVSDK/ArduPilot)**
+
 Compilador para a Domain-Specific Language (DSL) **MissionControl**, focado em gerar missões autônomas para drones via MAVSDK.
 
 Este projeto converte arquivos de missão (`.mc`) de alto nível em scripts Python executáveis, prontos para serem enviados a um *autopilot* (como ArduPilot) por meio da biblioteca MAVSDK.
+
+
+## Motivação
+A programação de missões autónomas para drones exige, tradicionalmente, um conhecimento profundo de protocolos complexos (MAVLink), bibliotecas assíncronas (como `asyncio` em Python) e gestão de estados de voo. Erros nestes scripts podem resultar em acidentes físicos dispendiosos.
+A **MissionControl DSL** resolve este problema ao abstrair a complexidade técnica. Permite que operadores definam missões de forma **declarativa**, focando-se no "o quê" (waypoints, tarefas) em vez do "como" (código de baixo nível). O compilador garante ainda validações de segurança críticas (como bateria mínima e altitude máxima) *antes* de gerar o código final, prevenindo falhas catastróficas em tempo de execução.
 
 ---
 
 ## Estrutura do Projeto
 
-* `*.mc`: Arquivos de entrada que definem a missão usando a sintaxe MissionControl DSL.
-* `main.py`: Ponto de entrada do compilador.
-* `compiler/`: Código fonte do compilador (Lexer, Parser, Visitor e Gerador de Código).
-* **`build/`**: Diretório de saída onde os scripts Python gerados são salvos. **Este diretório é ignorado pelo Git.**
-
----
-
-## Requisitos
-
-Para rodar o compilador e executar as missões geradas, você precisará:
-
-* **Python 3.10+**
-* **MAVSDK** (Para comunicação com o drone/simulador)
-* **ArduPilot SITL** (Software-in-the-Loop, um simulador de drone)
-
-### Instalação de Dependências
-
-Certifique-se de que todas as dependências Python necessárias estejam instaladas:
-
-```bash
-pip install mavsdk
-pip install antlr4-python3-runtime
-```
-
-## Como Compilar e Rodar uma Missão
-
-### 1. Compilar o Arquivo de Missão ( .mc )
-
-Execute o `main.py`, passando o caminho para o seu arquivo de missão como argumento. O arquivo Python gerado será salvo automaticamente no diretório `build/`.
-
-#### Comando de Compilação:
-
-```bash
-python main.py <CAMINHO_PARA_ARQUIVO>.mc
-```
-
----
-
-#### Exemplo: Se o arquivo de entrada for `missao_curta.mc`, a saída será:
-
-- Sucesso! Arquivo 'build/missao.py' gerado.
-- Para rodar: python build/missao.py
+MissionControl/
+│
+├── .devcontainer/              # 
+├── exemplos/                   # Pasta contendo scripts de exemplo (.mc) para teste
+├── missoes_geradas/            # Pasta de saída onde os arquivos compilados/gerados são salvos
+│
+├── MissionControl.g4           # Arquivo da gramática ANTLR4 (Lexer + Parser)
+│
+├── main.py                     # Ponto de entrada: lê o arquivo, chama o lexer/parser e inicia a compilação
+├── analisador_semantico.py     # Lógica de validação semântica (verifica tipos, variáveis e regras de negócio)
+├── compilador.py               # Backend: transforma a árvore sintática no código alvo 
+│
+├── MissionControlLexer.py      # Gerado pelo ANTLR: Transforma texto em tokens
+├── MissionControlParser.py     # Gerado pelo ANTLR: Cria a árvore sintática a partir dos tokens
+├── MissionControlListener.py   # Gerado pelo ANTLR: Interface para percorrer a árvore (padrão Listener)
+│
+├── requirements.txt            # Lista de dependências do projeto (ex: antlr4-python3-runtime)
+└── README.md                   # Documentação do projeto
 
 ---
 
 
-### 2. Executar o Script Gerado
+################## 
 
-Use o comando de execução fornecido na etapa de compilação. Este script Python irá se conectar ao simulador via MAVSDK e iniciar a missão.
 
-#### Comando de Execução (Exemplo):
 
-```bash
-python build/missao.py
-```
+
+AQUI BENNY
+
+
+
+################## 
+
+
+## Equipe
+
+* **[Ana Beatriz Soares]** 
+* **[Danielle Stephany Nunes]** 
+* **[Michelly Darquia]** 
+* **[Pedro de Melo]** 
+
+**Orientação:**
+* **Prof. Luis Carlos**
