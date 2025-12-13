@@ -1,12 +1,3 @@
-## Equipe
-
-* [Ana Beatriz Soares](https://github.com/alocinny)
-* [Danielle Stephany Nunes](https://github.com/Danielle-sn)
-* [Michelly Darquia](https://github.com/michellydarquia)
-* [Pedro de Melo](https://github.com/pedromonteir1111)
-
-**Orientação:** **Prof. Luis Carlos**
-
 # MissionControl DSL Compiler
 
 Compilador de Missões Autónomas para Drones (MAVSDK/ArduPilot)
@@ -97,3 +88,12 @@ Aqui estão os guias para preparação do ambiente e conexão com o simulador (A
 
 * **[Guia de execução para Windows](docs/EXECUCAO_WINDOWS.md)**
 * **[Guia de execução para Linux](docs/EXECUCAO_LINUX.md)**
+
+## Equipe
+
+* [Ana Beatriz Soares](https://github.com/alocinny)
+* [Danielle Stephany Nunes](https://github.com/Danielle-sn)
+* [Michelly Darquia](https://github.com/michellydarquia)
+* [Pedro de Melo](https://github.com/pedromonteir1111)
+
+**Orientação:** **Prof. Luis Carlos**
