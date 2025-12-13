@@ -1,59 +1,50 @@
 import sys
 import os
 from antlr4 import *
-from generated.compiler.MissionControlLexer import MissionControlLexer
-from generated.compiler.MissionControlParser import MissionControlParser
-from compiler.visitor import MissionCompiler 
-from generator import MissionCodeGenerator
+from MissionControlLexer import *
+from MissionControlParser import *
+from analisador_semantico import analise
+from compilador import gera_codigo
 
-def main(input_file):
-    # 1. Frontend (ANTLR)
+def main():
+    if len(sys.argv) < 2:
+        print("uso: python main.py <arquivo.mc>")
+        return
+
+    input_file = sys.argv[1]
     input_stream = FileStream(input_file, encoding='utf-8')
+
     lexer = MissionControlLexer(input_stream)
     stream = CommonTokenStream(lexer)
     parser = MissionControlParser(stream)
-    tree = parser.missionBlock()
+    
+    tree = parser.prog()
 
-
-    if parser.getNumberOfSyntaxErrors() > 0: # Se houver erros de sintaxe, aborta
-        print(f"Abortando: Encontrados {parser.getNumberOfSyntaxErrors()} erros de sintaxe.")
+    if parser.getNumberOfSyntaxErrors() > 0:
+        print("erro de sintaxe encontrado. Abortando.")
         return
 
-    # 2. Semântica (Visitor)
-    print(">>> Analisando Semântica...")
-    visitor = MissionCompiler()
     try:
-        visitor.visit(tree)
+        analise(tree)
     except Exception as e:
-        print(f"ERRO SEMÂNTICO: {e}")
+        print(f"{e}")
         return
+    
+    original_stdout = sys.stdout
 
-    # 3. Backend (Geração de Código)
-    print(">>> Gerando Código Python...")
-    generator = MissionCodeGenerator(visitor.ir)
-    codigo_final = generator.generate()
-
-    # 4. Salvar Arquivo
-    output_dir = "build"
+    output_dir = 'missoes_geradas'
     os.makedirs(output_dir, exist_ok=True)
+    base_name = os.path.basename(input_file)
+    output_filename = base_name.replace('.mc', '.py')
+    output_path = os.path.join(output_dir, output_filename)
     
-    file_name_with_ext = os.path.basename(input_file)
+    with open(output_path, 'w') as f:
+        sys.stdout = f
+        gera_codigo(tree)
     
-    # Separa o nome do arquivo base da extensão ('.mc')
-    base_name, _ = os.path.splitext(file_name_with_ext)
+    sys.stdout = original_stdout
     
-    # Constrói o novo nome do arquivo com a extensão .py
-    output_filename = f"{base_name}.py"
-    output_file = os.path.join(output_dir, output_filename)
-    
-    with open(output_file, "w", encoding='utf-8') as f:
-        f.write(codigo_final)
-    
-    print(f"Sucesso! Arquivo '{output_file}' gerado.")
-    print(f"Para rodar: python {output_file}")
+    print(f"arquivo gerado: {output_path}")
 
 if __name__ == '__main__':
-    if len(sys.argv) < 2:
-        print("Uso: python main.py <arquivo_missao.mc>")
-    else:
-        main(sys.argv[1])
+    main()

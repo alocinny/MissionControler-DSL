@@ -1,4 +1,4 @@
-# Generated from compiler/MissionControl.g4 by ANTLR 4.13.1
+# Generated from MissionControl.g4 by ANTLR 4.13.1
 # encoding: utf-8
 from antlr4 import *
 from io import StringIO
@@ -156,12 +156,6 @@ class MissionControlParser ( Parser ):
             if hasattr( listener, "exitProg" ):
                 listener.exitProg(self)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitProg" ):
-                return visitor.visitProg(self)
-            else:
-                return visitor.visitChildren(self)
-
 
 
 
@@ -236,12 +230,6 @@ class MissionControlParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitMissionBlock" ):
                 listener.exitMissionBlock(self)
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitMissionBlock" ):
-                return visitor.visitMissionBlock(self)
-            else:
-                return visitor.visitChildren(self)
 
 
 
@@ -322,12 +310,6 @@ class MissionControlParser ( Parser ):
             if hasattr( listener, "exitSettingsBlock" ):
                 listener.exitSettingsBlock(self)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitSettingsBlock" ):
-                return visitor.visitSettingsBlock(self)
-            else:
-                return visitor.visitChildren(self)
-
 
 
 
@@ -395,12 +377,6 @@ class MissionControlParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitSettingsEntry" ):
                 listener.exitSettingsEntry(self)
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitSettingsEntry" ):
-                return visitor.visitSettingsEntry(self)
-            else:
-                return visitor.visitChildren(self)
 
 
 
@@ -474,12 +450,6 @@ class MissionControlParser ( Parser ):
             if hasattr( listener, "exitWaypointsBlock" ):
                 listener.exitWaypointsBlock(self)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitWaypointsBlock" ):
-                return visitor.visitWaypointsBlock(self)
-            else:
-                return visitor.visitChildren(self)
-
 
 
 
@@ -550,12 +520,6 @@ class MissionControlParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitWaypointEntry" ):
                 listener.exitWaypointEntry(self)
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitWaypointEntry" ):
-                return visitor.visitWaypointEntry(self)
-            else:
-                return visitor.visitChildren(self)
 
 
 
@@ -638,12 +602,6 @@ class MissionControlParser ( Parser ):
             if hasattr( listener, "exitStartBlock" ):
                 listener.exitStartBlock(self)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitStartBlock" ):
-                return visitor.visitStartBlock(self)
-            else:
-                return visitor.visitChildren(self)
-
 
 
 
@@ -716,12 +674,6 @@ class MissionControlParser ( Parser ):
             if hasattr( listener, "exitTaskBlock" ):
                 listener.exitTaskBlock(self)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitTaskBlock" ):
-                return visitor.visitTaskBlock(self)
-            else:
-                return visitor.visitChildren(self)
-
 
 
 
@@ -792,12 +744,6 @@ class MissionControlParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitEndBlock" ):
                 listener.exitEndBlock(self)
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitEndBlock" ):
-                return visitor.visitEndBlock(self)
-            else:
-                return visitor.visitChildren(self)
 
 
 
@@ -870,12 +816,6 @@ class MissionControlParser ( Parser ):
             if hasattr( listener, "exitCmdLand" ):
                 listener.exitCmdLand(self)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitCmdLand" ):
-                return visitor.visitCmdLand(self)
-            else:
-                return visitor.visitChildren(self)
-
 
     class CmdRTLContext(CommandContext):
 
@@ -895,12 +835,6 @@ class MissionControlParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitCmdRTL" ):
                 listener.exitCmdRTL(self)
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitCmdRTL" ):
-                return visitor.visitCmdRTL(self)
-            else:
-                return visitor.visitChildren(self)
 
 
     class CmdHoverContext(CommandContext):
@@ -926,12 +860,6 @@ class MissionControlParser ( Parser ):
             if hasattr( listener, "exitCmdHover" ):
                 listener.exitCmdHover(self)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitCmdHover" ):
-                return visitor.visitCmdHover(self)
-            else:
-                return visitor.visitChildren(self)
-
 
     class CmdTakeoffContext(CommandContext):
 
@@ -955,12 +883,6 @@ class MissionControlParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitCmdTakeoff" ):
                 listener.exitCmdTakeoff(self)
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitCmdTakeoff" ):
-                return visitor.visitCmdTakeoff(self)
-            else:
-                return visitor.visitChildren(self)
 
 
     class CmdGotoContext(CommandContext):
@@ -987,12 +909,6 @@ class MissionControlParser ( Parser ):
             if hasattr( listener, "exitCmdGoto" ):
                 listener.exitCmdGoto(self)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitCmdGoto" ):
-                return visitor.visitCmdGoto(self)
-            else:
-                return visitor.visitChildren(self)
-
 
     class CmdSpeedContext(CommandContext):
 
@@ -1016,12 +932,6 @@ class MissionControlParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitCmdSpeed" ):
                 listener.exitCmdSpeed(self)
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitCmdSpeed" ):
-                return visitor.visitCmdSpeed(self)
-            else:
-                return visitor.visitChildren(self)
 
 
 
@@ -1170,12 +1080,6 @@ class MissionControlParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitGeoCoords" ):
                 listener.exitGeoCoords(self)
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitGeoCoords" ):
-                return visitor.visitGeoCoords(self)
-            else:
-                return visitor.visitChildren(self)
 
 
 
