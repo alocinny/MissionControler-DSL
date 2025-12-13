@@ -1,0 +1,16 @@
+{
+  "name": "MissionControl DSL Env",
+  "image": "mcr.microsoft.com/devcontainers/python:3.10",
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "17",
+      "jdkDistro": "ms"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": ["hmarr.antlr4-vscode-graham"]
+    }
+  },
+  "postCreateCommand": "pip install -r requirements.txt"
+}
