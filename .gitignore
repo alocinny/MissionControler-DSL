@@ -11,3 +11,4 @@ eeprom.bin
 mav.parm
 # Diretório de arquivos gerados (compilados)
 build/
+gold_target.py
