@@ -1,3 +1,12 @@
+## Equipe
+
+* [Ana Beatriz Soares](https://github.com/alocinny)
+* [Danielle Stephany Nunes](https://github.com/Danielle-sn)
+* [Michelly Darquia](https://github.com/michellydarquia)
+* [Pedro de Melo](https://github.com/pedromonteir1111)
+
+**Orientação:** **Prof. Luis Carlos**
+
 # MissionControl DSL Compiler
 
 Compilador de Missões Autónomas para Drones (MAVSDK/ArduPilot)
@@ -12,7 +21,6 @@ A programação de missões autonomas para drones exige, tradicionalmente, um co
 
 A **MissionControl DSL** resolve este problema ao abstrair a complexidade técnica. Permite que operadores definam missões de forma **declarativa**, focando-se no "o quê" (waypoints, tarefas) em vez do "como" (código de baixo nível). O compilador garante ainda validações de segurança críticas (como bateria mínima e altitude máxima) *antes* de gerar o código final, prevenindo falhas catastróficas em tempo de execução.
 
----
 
 ## Estrutura do Projeto
 
@@ -39,26 +47,25 @@ MissionControl/
 
 ```
 
----
+## Execução via GitHub Codespaces
 
+Esse projeto possui um ambiente de desenvolvimento em nuvem configurado.
 
-################## 
+1. No topo da página do repositório no GitHub, clique no botão `<> Code`
+2. Selecione a aba **Codespaces**
+3. Clique em **Create codespace on main**
+4. Aguarde o ambiente carregar
+    * *Nota:* O arquivo `.devContainer` instalará automaticamente o **Java 17** necessário para o ANTLR, **Python 3.1**, a extensão do VS Code para ANTLR e todas as dependências do `requirements.txt`
+5. Assim que o terminal estiver disponível, execute o compilador:
+    ```bash
+    python main.py examplos/<nome_do_arquivo_de_teste>.mc
+    ```
 
+## Como executar as missões geradas
 
+Após compilar o arquivo `.mc`e gerar o script python, caso queira testar o script gerado para verificar se está funcionando corretamente, você precisará configurar o ambiente com a biblitoeca MAVSDK para rodá-lo.
 
+Aqui estão os guias para preparação do ambiente e conexão com o simulador (ArduPilot SITL):
 
-AQUI BENNY
-
-
-
-################## 
-
-
-## Equipe
-
-* [Ana Beatriz Soares](https://github.com/alocinny)
-* [Danielle Stephany Nunes](https://github.com/Danielle-sn)
-* [Michelly Darquia](https://github.com/michellydarquia)
-* [Pedro de Melo](https://github.com/pedromonteiro111)
-
-**Orientação:** **Prof. Luis Carlos**
+* **[Guia de execução para Windows](docs/EXECUCAO_WINDOWS.md)**
+* **[Guia de execução para Linux](docs/EXECUCAO_LINUX.md)**
