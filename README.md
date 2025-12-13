@@ -1,6 +1,6 @@
 # MissionControl DSL Compiler
 
-**Compilador de Missões Autónomas para Drones (MAVSDK/ArduPilot)**
+Compilador de Missões Autónomas para Drones (MAVSDK/ArduPilot)
 
 Compilador para a Domain-Specific Language (DSL) **MissionControl**, focado em gerar missões autônomas para drones via MAVSDK.
 
@@ -9,6 +9,7 @@ Este projeto converte arquivos de missão (`.mc`) de alto nível em scripts Pyth
 
 ## Motivação
 A programação de missões autonomas para drones exige, tradicionalmente, um conhecimento profundo de protocolos complexos (MAVLink), bibliotecas assíncronas (como `asyncio` em Python) e gestão de estados de voo. Erros nestes scripts podem resultar em acidentes físicos dispendiosos.
+
 A **MissionControl DSL** resolve este problema ao abstrair a complexidade técnica. Permite que operadores definam missões de forma **declarativa**, focando-se no "o quê" (waypoints, tarefas) em vez do "como" (código de baixo nível). O compilador garante ainda validações de segurança críticas (como bateria mínima e altitude máxima) *antes* de gerar o código final, prevenindo falhas catastróficas em tempo de execução.
 
 ---
@@ -19,7 +20,7 @@ A **MissionControl DSL** resolve este problema ao abstrair a complexidade técni
 
 MissionControl/
 │
-├── .devcontainer/              # 
+├── .devcontainer/              # Configurações para container
 ├── exemplos/                   # Pasta contendo scripts de exemplo (.mc) para teste
 ├── missoes_geradas/            # Pasta de saída: onde os arquivos compilados/gerados são salvos
 │
