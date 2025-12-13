@@ -44,7 +44,7 @@ Este guia cobre a instalação do ambiente de desenvolvimento ArduPilot (SITL) e
 
 1.  **Inicie o Simulador em um terminal**:
     ```bash
-    sim_vehicle.py -v ArduCopter --console --map
+    sim_vehicle.py -v ArduCopter --console --map --out=udp:127.0.0.1:14540
     ```
     * Aguarde o drone inicializar totalmente.
 
