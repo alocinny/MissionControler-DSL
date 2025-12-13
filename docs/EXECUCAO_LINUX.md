@@ -13,7 +13,7 @@ Este guia cobre a instalação do ambiente de desenvolvimento ArduPilot (SITL) e
 2.  **Clone o repositório do ArduPilot**:
     ```bash
     cd ~
-    git clone --recurse-submodules [https://github.com/ArduPilot/ardupilot.git](https://github.com/ArduPilot/ardupilot.git)
+    git clone --recurse-submodules https://github.com/ArduPilot/ardupilot.git
     cd ardupilot
     ```
 
