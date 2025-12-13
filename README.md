@@ -59,8 +59,8 @@ Caso prefira rodar o projeto na sua própria máquina (Windows, Linux ou Mac) em
 
 1. Pré-requisitos:
 
-- Python 3.8 ou superior.
-- Java (JRE ou JDK) instalado (necessário para o funcionamento do ANTLR).
+   - Python 3.8 ou superior.
+   - Java (JRE ou JDK) instalado (necessário para o funcionamento do ANTLR).
 
 2. Instalação das Dependências: No terminal, dentro da pasta do projeto, execute:
     ```bash
