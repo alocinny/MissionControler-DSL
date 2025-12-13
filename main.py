@@ -38,7 +38,7 @@ def main():
     output_filename = base_name.replace('.mc', '.py')
     output_path = os.path.join(output_dir, output_filename)
     
-    with open(output_path, 'w') as f:
+    with open(output_path, 'w', encoding='utf-8') as f:
         sys.stdout = f
         gera_codigo(tree)
     
