@@ -62,14 +62,26 @@ Caso prefira rodar o projeto na sua própria máquina (Windows, Linux ou Mac) em
    - Python 3.8 ou superior.
    - Java (JRE ou JDK) instalado (necessário para o funcionamento do ANTLR).
 
-2. Instalação das Dependências: No terminal, dentro da pasta do projeto, execute:
+2. Configurando o Ambiente Virtual (Venv):
+   Recomendamos criar um ambiente isolado para não conflitar com outras instalações do seu sistema.
+   * **No Windows:**
+     ```bash
+     python -m venv venv
+     .\venv\Scripts\activate
+     ```
+   * **No Linux / Mac:**
+     ```bash
+     python3 -m venv venv
+     source venv/bin/activate
+     ```
+3. Instalação das Dependências: No terminal, dentro da pasta do projeto, execute:
     ```bash
     pip install -r requirements.txt
     ```
 
-3. Execução: Para compilar um arquivo, use o comando:
+4. Execução: Para compilar um arquivo, use o comando:
     ```bash
-    python main.py exemplos/missao_teste.mc
+    python main.py exemplos/<nome_do_arquivo_de_teste>.mc
     ```
 
 
